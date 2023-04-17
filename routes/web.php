@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPanel\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,3 +22,18 @@ Route::middleware([
 
 //**********Admin panel**********
 Route::get('admin',[\App\Http\Controllers\AdminPanel\HomeController::class, 'index'])->name('admin');
+
+//***Admin category routes
+Route::get('/admin/category',[CategoryController::class, 'index'])->name('admin_category');
+Route::get('/admin/category/create',[CategoryController::class, 'create'])->name('admin_category_create');
+Route::post('/admin/category/store',[CategoryController::class, 'store'])->name('admin_category_store');
+
+//Route::prefix('/category')->name('category.')->controller(CategoryController::class)->group(function () {
+//    Route::get('/', 'index')->name('index');
+//Route::get('/create', 'create')->name('create');
+//    Route::post('/store', 'store')->name('store');
+   // Route::get('/edit/{id}', 'edit')->name('edit');
+    //Route::post('/update/{id}', 'update')->name('update');
+  //  Route::get('/show/{id}', 'show')->name('show');
+//    Route::get('/destroy/{id}', 'destroy')->name('destroy');
+//});   
