@@ -28,7 +28,8 @@ Route::get('/admin/category',[CategoryController::class, 'index'])->name('admin_
 Route::get('/admin/category/create',[CategoryController::class, 'create'])->name('admin_category_create');
 Route::post('/admin/category/store',[CategoryController::class, 'store'])->name('admin_category_store');   
 Route::get('/admin/category/edit/{id}',[CategoryController::class, 'edit'])->name('admin_category_edit');
-Route::post('/admin/category/update/{id}',[CategoryController::class, 'update'])->name('admin_category_update');  
+Route::post('/admin/category/update/{id}',[CategoryController::class, 'update'])->name('admin_category_update');
+Route::get('/admin/category/show/{id}',[CategoryController::class, 'show'])->name('admin_category_show');
 
 
 //Route::prefix('/category')->name('category.')->controller(CategoryController::class)->group(function () {

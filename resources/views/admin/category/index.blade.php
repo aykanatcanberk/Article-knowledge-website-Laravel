@@ -18,7 +18,7 @@
 
 
                         <a href="/admin/category/create" class="btn btn-block btn-primary btn-sm"
-                           style="width: 150px"><h5 class="box-title" style="color: white"> Add Category</h5></a>
+                           style="width: 150px"><h5 class="box-title" style="color: white"> Add Category</h5></a> <br>
                     </div><!-- /.box-header -->
                     <div class="box-body">
 
