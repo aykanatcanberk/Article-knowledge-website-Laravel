@@ -13,7 +13,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-       return view('admin.category.index');
+        $data=Category::all();
+       return view('admin.category.index',[
+        'data' =>$data 
+       ]);
     }
 
     /**
@@ -56,17 +59,33 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(Category $category,$id)
     {
-        //
+        
+        $data=Category::find($id);
+       return view('admin.category.edit',[
+        'data' =>$data 
+       ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Category $category,$id)
     {
-        //
+        $data=Category::find($id);
+        $data->parent_id = 0;//$request->parent_id;
+        $data->title = $request->title;
+        $data->keywords = $request->keywords;
+        $data->description = $request->description;
+        $data->status = $request->status;
+        if($request->file('image')){
+
+            $data->image=$request->file('image')->store('image');
+
+        }
+        $data->save();
+        return redirect('admin/category');
     }
 
     /**
