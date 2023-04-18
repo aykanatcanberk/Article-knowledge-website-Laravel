@@ -26,7 +26,6 @@
                             <tbody>
                             <tr>
                                 <th style="width: 10px">Id</th>
-                                <th>Parent</th>
                                 <th>Title</th>
                                 <th>Image</th>
                                 <th>Status</th>
@@ -37,7 +36,6 @@
                             @foreach($data as $rs)
                                 <tr>
                                     <td>{{$rs->id}}</td>
-                                    <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</td>
                                     <td>{{$rs->title}}</td>
                                     <td>
                                         @if($rs->image)
@@ -50,11 +48,9 @@
                                     <td>{{$rs->status}}</td>
                                     <td><a href="/admin/category/edit/{{$rs->id}}"
                                            class="btn btn-block btn-primary btn-sm">Edit</a></td>
-
-                                    <td><a href="/admin/category/destroy/{{$rs->id}}"
+                                    <td><a href="/admin/category/delete/{{$rs->id}}"
                                            class="btn btn-block btn-danger btn-sm"
                                            onclick="return confirm('Are you sure for deleting?')">Delete</a></td>
-
                                     <td><a href="/admin/category/show/{{$rs->id}}"
                                            class="btn btn-block btn-success btn-sm">Show</a></td>
                                 </tr>

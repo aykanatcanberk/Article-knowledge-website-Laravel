@@ -20,26 +20,21 @@
         <h4>General</h4>
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>IBP</span></a>
                 <ul class="collapse list-unstyled" id="dashboard">
                     <li>
-                        <a href="dashboard.html">> <span>Default Dashboard</span></a>
+                        <a href="dashboard.html">> <span></span></a>
                     </li>
                     <li>
-                        <a href="dashboard_2.html">> <span>Dashboard style 2</span></a>
+                        <a href="dashboard_2.html">> <span></span></a>
                     </li>
                 </ul>
             </li>
 
-            <li><a href=""><i class="fa fa-clock-o orange_color"></i> <span>Menus</span></a></li>
-            <li><a href=""><i class="fa fa-diamond purple_color"></i> <span>Content</span></a></li>
-            <li><a href=""><i class="fa fa-clone yellow_color"></i> <span>Comment</span></a></li>
-            <li><a href=""><i class="fa fa-clock-o orange_color"></i> <span>FAQ</span></a></li>
-            <li><a href="" ><i class="fa fa-paper-plane red_color"></i> <span>Messages</span></a></li>
-            <li><a href=""><i class="fa fa-clock-o orange_color"></i> <span>Users</span></a></li>
-
-
-
+            <li><a href="/admin/category"><i class="fa fa-clock-o orange_color"></i> <span>Categories</span></a></li>
+            <li><a href="/admin/content"><i class="fa fa-diamond purple_color"></i> <span>Content</span></a></li>
+            <li><a href="/admin/messages" ><i class="fa fa-paper-plane red_color"></i> <span>Messages</span></a></li>
+            <li><a href="/admin/user"><i class="fa fa-clock-o orange_color"></i> <span>Users</span></a></li>
             <li>
                 <a href="/admin/social">
                     <i class="fa fa-paper-plane red_color"></i> <span>Social</span></a>

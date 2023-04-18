@@ -1,12 +1,12 @@
 @extends("layouts.adminbase")
-@section('title','Category List')
+@section('title','Edit Category:'.$data->title)
 
 @section('content')
 <div class="container-fluid">
     <div class="row column_title">
         <div class="col-md-12">
             <div class="page_title">
-                <h2>Add Category</h2>
+                <h2>Edit Category Page </h2>
             </div>
         </div>
     </div>
@@ -18,40 +18,37 @@
                     <div class="row column_title">
                         <div class="col-md-12">
                             <div class="page_title">
-                                <h5>Category</h5>
+                                <h5>Edit Category:{{$data->title}}</h5>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="content-wrapper">
+                    
                     <section class="content">
-                        <form action="/admin/category/store" method="post" enctype="multipart/form-data">
+                        <form action="/admin/category/update/{{$data->id}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group-inner">
-                                    <label>Parent Category</label>
-                                    <select class="form-control select2" name="parent_id">
-                                        <option value="0" selected="selected">Main Category</option>
-                                        @foreach($data as $rs)
-                                            <option
-                                                value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title) }}</option>
-                                        @endforeach
-                                    </select>                               
+                                    
+                                
                                 </div>
+
+
                                 <div class="form-group-inner">
                                     <label>Title</label>
-                                    <input type="text" class="form-control" name="title" placeholder="Title">
+                                    <input type="text" class="form-control" name="title" value="{{$data->title}}" >
                                 </div>
 
                                 <div class="form-group-inner">
                                     <label>Keywords</label>
-                                    <input type="text" class="form-control" name="keywords" placeholder="keywords">
+                                    <input type="text" class="form-control" name="keywords" value="{{$data->keywords}}">
                                 </div>
                                 <div class="form-group-inner">
                                     <label>Description</label>
-                                    <input type="text" class="form-control" name="description"
-                                           placeholder="description">
+                                    <input type="text" class="form-control" name="description" value="{{$data->description}}">
+                                    
                                 </div>
 
                                 <div class="form-group">
@@ -68,6 +65,7 @@
                                 <div class="form-group">
                                     <label>Status</label>
                                     <select class="form-control" name="status">
+                                        <option selected>{{$data->status}}</option>
                                         <option>True</option>
                                         <option>False</option>
                                     </select>
@@ -77,7 +75,7 @@
                                     <div class="inline-remember-me">
                                         <button class="btn btn-sm btn-primary pull-right login-submit-cs"
                                                 type="submit">
-                                            Save
+                                            Update
                                         </button>
                                         <label class="">
                                             <div class="icheckbox_square-green" style="position: relative;"><input

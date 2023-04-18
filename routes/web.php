@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminPanel\AdminContentController;
 use App\Http\Controllers\AdminPanel\CategoryController;
+use App\Http\Controllers\AdminPanel\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,23 +23,28 @@ Route::middleware([
 });
 
 //**********Admin panel**********
-Route::get('admin',[\App\Http\Controllers\AdminPanel\HomeController::class, 'index'])->name('admin');
+Route::prefix('/admin')->name('admin.')->controller(CategoryController::class)->group(function () {
+Route::get('',[HomeController::class, 'index']);
 
 //***Admin category routes
-Route::get('/admin/category',[CategoryController::class, 'index'])->name('admin_category');
-Route::get('/admin/category/create',[CategoryController::class, 'create'])->name('admin_category_create');
-Route::post('/admin/category/store',[CategoryController::class, 'store'])->name('admin_category_store');   
-Route::get('/admin/category/edit/{id}',[CategoryController::class, 'edit'])->name('admin_category_edit');
-Route::post('/admin/category/update/{id}',[CategoryController::class, 'update'])->name('admin_category_update');
-Route::get('/admin/category/show/{id}',[CategoryController::class, 'show'])->name('admin_category_show');
+Route::prefix('/category')->name('category.')->controller(CategoryController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::post('/update/{id}', 'update')->name('update');
+    Route::get('/show/{id}', 'show')->name('show');
+    Route::get('/destroy/{id}', 'destroy')->name('destroy');
+    });   
 
-
-//Route::prefix('/category')->name('category.')->controller(CategoryController::class)->group(function () {
-//    Route::get('/', 'index')->name('index');
-//Route::get('/create', 'create')->name('create');
-//    Route::post('/store', 'store')->name('store');
-   // Route::get('/edit/{id}', 'edit')->name('edit');
-    //Route::post('/update/{id}', 'update')->name('update');
-  //  Route::get('/show/{id}', 'show')->name('show');
-//    Route::get('/destroy/{id}', 'destroy')->name('destroy');
-//});   
+  //***Admin Content routes
+  Route::prefix('/content')->name('content.')->controller(AdminContentController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::post('/update/{id}', 'update')->name('update');
+    Route::get('/show/{id}', 'show')->name('show');
+    Route::get('/destroy/{id}', 'destroy')->name('destroy');
+    });  
+});

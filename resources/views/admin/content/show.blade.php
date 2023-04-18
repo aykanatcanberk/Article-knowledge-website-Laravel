@@ -53,11 +53,7 @@
                                     <td>{{$data->id}}</td>
                                     <td>{{$data->title}}</td>
                                     <td>{{$data->keywords}}</td>
-                                    <td> 
-                                        @if($data->image)
-                                        <img src="{{Storage::url($data->image)}}" style="height: 40px">
-                                        @endif
-                                    </td>
+                                    <td>{{$data->images}}</td>
                                     <td>{{$data->status}}</td>
                                     <td>{{$data->created_at}}</td>
                                     <td>{{$data->updated_at}}</td>
