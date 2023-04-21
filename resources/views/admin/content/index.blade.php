@@ -31,7 +31,7 @@
                                 <th>Category</th>
                                 <th>Title</th>
                                 <th>Image</th>
-
+                                <th>Image Gallery</th>
                                 <th>Status</th>
                                 <th style="width: 40px">Edit</th>
                                 <th style="width: 40px">Delete</th>
@@ -48,6 +48,12 @@
                                             <img src="{{Storage::url($rs->image)}}" style="height: 40px">
                                         @endif
 
+                                    </td>
+
+                                    <td> <a href="{{route('admin.image.index',['cid'=>$rs->id])}}"
+                                            onclick="return !window.open(this.href, '','top=50 left=0 width=1000,height=400')">
+                                            <img src="{{asset('assets')}}/admin2/images/imagesgallery.png" style="height: 40px">
+                                        </a>
                                     </td>
                                     
 
