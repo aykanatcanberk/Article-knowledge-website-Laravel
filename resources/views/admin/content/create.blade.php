@@ -1,24 +1,28 @@
-@extends("layouts.adminbase")
-@section('title','Category List')
+@extends('layouts.adminbase')
 
+@section('title','Add Content')
+@section('head')
+<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 @section('content')
-<div class="container-fluid">
-    <div class="row column_title">
-        <div class="col-md-12">
-            <div class="page_title">
-                <h2>Add Category</h2>
+    <div class="midde_cont">
+        <div class="container-fluid">
+            <div class="row column_title">
+                <div class="col-md-12">
+                    <div class="page_title">
+                        <h1>Add Content</h1>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="row column1">
-    <div class="container-fluid">
+        <div class="container-fluid">
             <div class="section">
                 <div class="container-fluid">
                     <div class="row column_title">
                         <div class="col-md-12">
                             <div class="page_title">
-                                <h5>Category</h5>
+                                <h5>Content</h5>
                             </div>
                         </div>
                     </div>
@@ -26,12 +30,18 @@
 
                 <div class="content-wrapper">
                     <section class="content">
-                        <form action="/admin/category/store" method="post" enctype="multipart/form-data">
+                        <form action="/admin/content/store" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group-inner">
-                                    <label>Parent Category</label>
-                                
+                                    <label>Parent Content</label>
+                                    <select class="form-control select2" name="category_id">
+                                        <option value="0" selected="selected">Main Content</option>
+                                        @foreach($data as $rs)
+                                            <option
+                                                value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title) }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
 
@@ -45,10 +55,21 @@
                                     <input type="text" class="form-control" name="keywords" placeholder="keywords">
                                 </div>
                                 <div class="form-group-inner">
-                                    <label>Description</label>
-                                    <input type="text" class="form-control" name="description"
-                                           placeholder="description">
+                                    <label>Detail</label>
+                                    <textarea class="form-control" id="detail" name="detail">
+                                    </textarea>
+                                    <script>
+                                ClassicEditor
+                                    .create( document.querySelector( '#detail' ) )
+                                    .then( editor => {
+                                        console.log( editor );
+                                    } )
+                                    .catch( error => {
+                                        console.error( error );
+                                    } );
+                            </script>
                                 </div>
+                                <div class="form-group-inner">
 
                                 <div class="form-group">
                                     <label for="exampleInputFile">Image</label>
@@ -92,8 +113,4 @@
             </div>
         </div>
     </div>
-
-        
-
-</div>
 @endsection
