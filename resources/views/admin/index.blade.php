@@ -192,17 +192,17 @@
                                     <div class="carousel-inner">
                                         <div class="item carousel-item active">
                                             <div class="img-box"><img src="{{asset('assets')}}/admin2/images/layout_img/user_img.jpg" alt=""></div>
-                                            <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
+                                            <p class="testimonial">1</p>
                                             <p class="overview"><b>Michael Stuart</b>Seo Founder</p>
                                         </div>
                                         <div class="item carousel-item">
                                             <div class="img-box"><img src="{{asset('assets')}}/admin2/images/layout_img/user_img.jpg" alt=""></div>
-                                            <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
+                                            <p class="testimonial">2</p>
                                             <p class="overview"><b>Michael Stuart</b>Seo Founder</p>
                                         </div>
                                         <div class="item carousel-item">
                                             <div class="img-box"><img src="{{asset('assets')}}/admin2/images/layout_img/user_img.jpg" alt=""></div>
-                                            <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
+                                            <p class="testimonial">3</p>
                                             <p class="overview"><b>Michael Stuart</b>Seo Founder</p>
                                         </div>
                                     </div>
