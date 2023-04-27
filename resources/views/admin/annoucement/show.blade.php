@@ -79,12 +79,4 @@
     </div>
     <!-- /.card-body -->
 </div>
-
-</section>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 @endsection

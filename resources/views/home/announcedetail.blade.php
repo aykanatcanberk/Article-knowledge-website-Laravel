@@ -6,7 +6,7 @@
     <div class="row column_title">
         <div class="col-md-12">
             <div class="page_title">
-                <h2><a href="/">Home/ </a><a href="/announce">Announce</a><a href="">/ {{$data->title}}</a></h2>
+                <h2><a href="/">Home> </a><a href="/announce">Announce</a><a href="">> {{$data->title}}</a></h2>
             </div>
         </div>
     </div>
