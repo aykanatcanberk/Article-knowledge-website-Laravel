@@ -30,6 +30,9 @@
                     </li>
                 </ul>
             </li>
+            @php
+                $maincategories=\App\Http\Controllers\HomeController::maincategorylist();
+            @endphp
 
             <li><a href="/admin/category"><i class="fa fa-clock-o orange_color"></i> <span>Categories</span></a></li>
             <li><a href="/admin/content"><i class="fa fa-diamond purple_color"></i> <span>Content</span></a></li>

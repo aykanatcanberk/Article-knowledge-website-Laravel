@@ -12,7 +12,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
+Route::get('/',[App\Http\Controllers\HomeController::class,'index'])->name('home');
+Route::get('/announce',[App\Http\Controllers\HomeController::class,'announce'])->name('announce');
+Route::get('/content',[App\Http\Controllers\HomeController::class,'content'])->name('content');
+Route::get('/contentdetail/{id}',[App\Http\Controllers\HomeController::class,'contentdetail'])->name('contentdetail');
+Route::get('/announcedetail/{id}',[App\Http\Controllers\HomeController::class,'announcedetail'])->name('announcedetail');
+
 
 Route::middleware([
     'auth:sanctum',
@@ -25,12 +30,13 @@ Route::middleware([
    
 });
 
+
 //**********Admin panel**********
-Route::prefix('/admin')->name('admin.')->controller(CategoryController::class)->group(function () {
+Route::prefix('/admin')->name('admin.')->controller(CategoryController::class)->group(function (){ 
 Route::get('',[HomeController::class, 'index']);
 
 //***Admin category routes
-Route::prefix('/category')->name('category.')->controller(CategoryController::class)->group(function () {
+Route::prefix('/category')->name('category.')->controller(CategoryController::class)->group(function (){
     Route::get('/', 'index')->name('index');
     Route::get('/create', 'create')->name('create');
     Route::post('/store', 'store')->name('store');

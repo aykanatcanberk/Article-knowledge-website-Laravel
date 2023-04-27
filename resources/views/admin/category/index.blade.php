@@ -1,6 +1,25 @@
 @extends("layouts.adminbase")
 @section('title','Category List')
-
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+@section('head')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+@endsection
 @section('content')
 <div class="container-fluid">
     <div class="row column_title">
@@ -20,10 +39,14 @@
                         <a href="/admin/category/create" class="btn btn-block btn-primary btn-sm"
                            style="width: 150px"><h5 class="box-title" style="color: white"> Add Category</h5></a> <br>
                     </div><!-- /.box-header -->
+                    <br>
                     <div class="box-body">
-
+                        <b>Search for specific: 
+                                <input id="gfg" type="text" 
+                                placeholder="Search here">
+                        </b>
                         <table class="table table-bordered">
-                            <tbody>
+                            <tbody id="geeks">
                             <tr>
                                 <th style="width: 10px">Id</th>
                                 <th>Parent</th>
@@ -78,4 +101,17 @@
         
 
 </div>
+@endsection
+@section('foot')
+<script>
+            $(document).ready(function() {
+                $("#gfg").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#geeks tr").filter(function() {
+                        $(this).toggle($(this).text()
+                        .toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
 @endsection

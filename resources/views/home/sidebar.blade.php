@@ -20,7 +20,7 @@
         <h4>General</h4>
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>IBP</span></a>
+                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>Categories</span></a>
                 <ul class="collapse list-unstyled" id="dashboard">
                     <li>
                         <a href="dashboard.html">> <span></span></a>
@@ -31,21 +31,9 @@
                 </ul>
             </li>
 
-            <li><a href=""><i class="fa fa-clock-o orange_color"></i> <span>Menus</span></a></li>
-            <li><a href=""><i class="fa fa-diamond purple_color"></i> <span>Content</span></a></li>
-            <li><a href=""><i class="fa fa-clone yellow_color"></i> <span>Comment</span></a></li>
-            <li><a href=""><i class="fa fa-clock-o orange_color"></i> <span>FAQ</span></a></li>
+            <li><a href="/content"><i class="fa fa-diamond purple_color"></i> <span>All Contents</span></a></li>
+            <li><a href="/announce"><i class="fa fa-diamond purple_color"></i> <span>All Announces</span></a></li>
             <li><a href="" ><i class="fa fa-paper-plane red_color"></i> <span>Messages</span></a></li>
-            <li><a href=""><i class="fa fa-clock-o orange_color"></i> <span>Users</span></a></li>
-
-
-
-            <li>
-                <a href="">
-                    <i class="fa fa-paper-plane red_color"></i> <span>Social</span></a>
-            </li>
-
-            <li><a href=""><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
         </ul>
     </div>
 </nav>
