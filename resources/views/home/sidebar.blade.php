@@ -33,7 +33,7 @@
 
             <li><a href="/content"><i class="fa fa-diamond purple_color"></i> <span>All Contents</span></a></li>
             <li><a href="/announce"><i class="fa fa-diamond purple_color"></i> <span>All Announces</span></a></li>
-            <li><a href="" ><i class="fa fa-paper-plane red_color"></i> <span>Messages</span></a></li>
+            <li><a href="/contact" ><i class="fa fa-paper-plane red_color"></i> <span>Contact</span></a></li>
         </ul>
     </div>
 </nav>
