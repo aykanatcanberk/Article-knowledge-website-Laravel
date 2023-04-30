@@ -42,10 +42,13 @@
                         <a href="{{route('admin.annoucement.create')}}" class="btn btn-block btn-primary btn-sm"
                            style="width: 170px"><h5 class="box-title" style="color: white"> Add Annoucement</h5></a>
                     </div><br><!-- /.box-header -->
-                    <b>Search for specific: 
-                                <input id="gfg" type="text" 
-                                placeholder="Search here">
-                        </b> <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Search for specific: 
+                            <input id="gfg" type="text" placeholder="Search here" class="form-control">
+                            </b>
+                        </div>
+                    </div>
                     <div class="box-body"> <br>
 
                         <table class="table table-bordered">

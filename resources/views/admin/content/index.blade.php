@@ -45,11 +45,13 @@
                     </div><!-- /.box-header -->
                     <br>
                     <div class="box-body">
-                        <b>Search for specific: 
-                                <input id="gfg" type="text" 
-                                placeholder="Search here">
-                        </b> <br>
-
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Search for specific: 
+                            <input id="gfg" type="text" placeholder="Search here" class="form-control">
+                            </b>
+                        </div>
+                     </div>
                         <table class="table table-bordered"> <br>
                         <tbody id="geeks">
                             <tr>

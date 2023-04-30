@@ -1,5 +1,5 @@
 @extends("layouts.frontbase")
-@section('title','home')
+@section('title','Contact Page')
 @section('head')
 <style>
 
@@ -153,10 +153,16 @@ button[type="submit"]:hover {
                             <div class="contact-form">
                                 <textarea class="input" type="text" name="message" placeholder="Your Message"></textarea>
                             </div>
-
+                            @auth
                             <div class="contact-form">
                                 <input class="input" type="submit" value="Send Message">
                             </div>
+                            @endauth
+                           @guest
+                            <div class="contact-form">
+                                <a href="loginuser" class="btn-primary-1" style="color: #4CAF50;">Please login to get in touch.</a>
+                            </div>
+                           @endguest
   </form>
 </div>
             <!-- /row -->

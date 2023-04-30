@@ -49,6 +49,7 @@ Route::middleware([
 });
 
 
+Route::middleware('auth')->group(function () {
 //**********Admin panel**********
 Route::middleware('admin')->prefix('admin')->name('admin.')->group(function (){ 
 Route::get('',[HomeController::class, 'index']);
@@ -113,6 +114,7 @@ Route::prefix('/category')->name('category.')->controller(CategoryController::cl
         Route::get('/destroy/{id}', 'destroy')->name('destroy');
         Route::post('/addrole/{id}', 'addrole')->name('addrole');
         Route::get('/destroyrole/{uid}/{rid}', 'destroyrole')->name('destroyrole');
-    });
+        });
+    }); 
 });
 

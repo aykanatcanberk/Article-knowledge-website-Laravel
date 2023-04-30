@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title','Edit Annoucement:')
+@section('title','Edit Annoucement:'.$data->title)
 
 @section('head')
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">

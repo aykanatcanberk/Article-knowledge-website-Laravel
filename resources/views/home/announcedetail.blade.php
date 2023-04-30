@@ -1,5 +1,5 @@
 @extends("layouts.frontbase")
-@section('title','Announce Detail')
+@section('title',$data->title)
 -
 @section('content')
 <div class="container-fluid">
