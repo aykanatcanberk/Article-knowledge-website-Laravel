@@ -8,6 +8,7 @@ use App\Models\Content;
 use App\Models\Category;
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -79,7 +80,33 @@ class HomeController extends Controller
         return view('home.announcedetail',[
             'data'=>$data
         ]);
-        
+  
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
+
+    public function loginadmincheck(Request $request)
+    {
+        //dd($request);
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/admin');
+        }
+
+        return back()->withErrors([
+            'error' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
     }
 }
     

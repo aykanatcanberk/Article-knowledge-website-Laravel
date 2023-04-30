@@ -10,7 +10,9 @@
             <div class="user_profle_side">
                 <div class="user_img"><img class="img-responsive" src="{{asset('assets')}}/admin2/images/layout_img/user_img.jpg" alt="#" /></div>
                 <div class="user_info">
-                    <h6>Değiştir</h6>
+                    <h6>@Auth{{Auth::user()->name}}@endauth
+
+                    </h6>
                     <p><span class="online_animation"></span> Online</p>
                 </div>
             </div>

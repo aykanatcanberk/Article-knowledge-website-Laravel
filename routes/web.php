@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPanel\AdminContentController;
+use App\Http\Controllers\AdminPanel\AdminUserController;
 use App\Http\Controllers\AdminPanel\AnnoucementController;
 use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Http\Controllers\AdminPanel\HomeController;
@@ -21,6 +22,11 @@ Route::get('/contentdetail/{id}',[App\Http\Controllers\HomeController::class,'co
 Route::get('/announcedetail/{id}',[App\Http\Controllers\HomeController::class,'announcedetail'])->name('announcedetail');
 Route::get('/contact',[App\Http\Controllers\HomeController::class,'contact'])->name('contact');
 Route::post('/storemessage',[App\Http\Controllers\HomeController::class,'storemessage'])->name('storemessage');
+Route::view('loginuser','home.login')->name('loginuser');
+Route::view('registeruser','home.register')->name('registeruser');
+Route::get('/logoutuser', [App\Http\Controllers\HomeController::class, 'logout'])->name('logoutuser');
+Route::view('loginadmin','admin.login')->name('loginadmin');
+Route::post('/loginadmincheck', [App\Http\Controllers\HomeController::class, 'loginadmincheck'])->name('loginadmincheck');
 
 //***User messages routes
 Route::prefix('/message')->name('message.')->controller(MessageController::class)->group(function () {
@@ -44,10 +50,10 @@ Route::middleware([
 
 
 //**********Admin panel**********
-Route::prefix('/admin')->name('admin.')->controller(CategoryController::class)->group(function (){ 
+Route::middleware('admin')->prefix('admin')->name('admin.')->group(function (){ 
 Route::get('',[HomeController::class, 'index']);
 
-//***General
+//***General    
 Route::get('/setting',[App\Http\Controllers\AdminPanel\HomeController::class, 'setting'])->name('setting');
 Route::post('/setting',[App\Http\Controllers\AdminPanel\HomeController::class, 'settingUpdate'])->name('setting.update');
 //***Admin category routes
@@ -97,5 +103,16 @@ Route::prefix('/category')->name('category.')->controller(CategoryController::cl
     Route::get('/show/{id}', 'show')->name('show');
     Route::get('/destroy/{id}', 'destroy')->name('destroy');
     }); 
+
+     //***Admin User routes
+     Route::prefix('/user')->name('user.')->controller(AdminUserController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+        Route::post('/addrole/{id}', 'addrole')->name('addrole');
+        Route::get('/destroyrole/{uid}/{rid}', 'destroyrole')->name('destroyrole');
+    });
 });
 
