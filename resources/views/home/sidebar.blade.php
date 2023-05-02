@@ -22,14 +22,18 @@
         <h4>General</h4>
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>Categories</span></a>
+                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>User</span></a>
                 <ul class="collapse list-unstyled" id="dashboard">
+                    @auth 
                     <li>
-                        <a href="dashboard.html">> <span></span></a>
+                        <a href="/userpanel">User Panel<span></span></a>
                     </li>
+                    @endauth
+                    @guest
                     <li>
-                        <a href="dashboard_2.html">> <span></span></a>
+                        <a href="/userpanel">You can see user transactions by logging in.<span></span></a>
                     </li>
+                    @endguest
                 </ul>
             </li>
 

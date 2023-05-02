@@ -29,9 +29,7 @@
                             @endguest
                             @auth
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="profile.html">My Profile</a>
-                                <a class="dropdown-item" href="settings.html">Settings</a>
-                                <a class="dropdown-item" href="help.html">Help</a>
+                                <a class="dropdown-item" href="/userpanel">My Profile</a>
                                 <a class="dropdown-item" href="/logoutuser"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
                             </div>
                             @endauth

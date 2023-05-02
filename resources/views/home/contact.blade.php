@@ -138,15 +138,8 @@ button[type="submit"]:hover {
                             @csrf
                     <h2>Contact Us</h2>
                             <div class="contact-form">
-                                <input class="input" type="text" name="name" placeholder="Name & Surname">
-                            </div>
-                            <div class="contact-form">
                                 <input class="input" type="tel" name="phone" placeholder="Phone Number">
                             </div>
-                            <div class="contact-form">
-                                <input class="input" type="email" name="email" placeholder="Email">
-                            </div>
-
                             <div class="contact-form">
                                 <input class="input" type="text" name="subject" placeholder="Subject">
                             </div>

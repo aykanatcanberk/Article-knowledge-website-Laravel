@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id()->autoIncrement();
+            $table->string('user_id',50)->nullable();
             $table->string('name',50);
             $table->string('email',50)->nullable();
             $table->string('phone',20)->nullable();

@@ -7,8 +7,10 @@ use App\Models\Setting;
 use App\Models\Content;
 use App\Models\Category;
 use App\Models\Message;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -57,22 +59,23 @@ class HomeController extends Controller
                 'setting'=>$setting,
             ]);
     }
-    public function storemessage(Request $request)
-    {
-        //echo "store message";exit();
-        //dd($request);
-        $data=new Message();
-        $data->name=$request->input('name');
-        $data->email=$request->input('email');
-        $data->phone=$request->input('phone');
-        $data->subject=$request->input('subject');
-        $data->message=$request->input('message');
-        $data->ip=request()->ip();
-        $data->save();
-
-        return redirect()->route('contact')->with('info','Your messsage has been sent.');
-
+public function storemessage(Request $request)
+{
+    $data=new Message();
+    if (Auth::check()) {
+        $data->user_id=Auth::user()->id;
+        $data->name=Auth::user()->name;
+        $data->email=Auth::user()->email;
     }
+    $data->phone=$request->input('phone');
+    $data->subject=$request->input('subject');
+    $data->message=$request->input('message');
+    $data->ip=request()->ip();
+
+    $data->save();
+
+    return redirect()->route('contact')->with('info','Your messsage has been sent.');
+}
     public function announcedetail($id){
 
         $data=Annoucement::find($id);

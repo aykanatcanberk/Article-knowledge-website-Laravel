@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Http\Controllers\AdminPanel\HomeController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\MessageController;
+use App\Http\Controllers\UserController;
 use App\Models\Annoucement;
 use App\Models\Message;
 use Illuminate\Support\Facades\Route;
@@ -20,8 +21,7 @@ Route::get('/announce',[App\Http\Controllers\HomeController::class,'announce'])-
 Route::get('/content',[App\Http\Controllers\HomeController::class,'content'])->name('content');
 Route::get('/contentdetail/{id}',[App\Http\Controllers\HomeController::class,'contentdetail'])->name('contentdetail');
 Route::get('/announcedetail/{id}',[App\Http\Controllers\HomeController::class,'announcedetail'])->name('announcedetail');
-Route::get('/contact',[App\Http\Controllers\HomeController::class,'contact'])->name('contact');
-Route::post('/storemessage',[App\Http\Controllers\HomeController::class,'storemessage'])->name('storemessage');
+
 Route::view('loginuser','home.login')->name('loginuser');
 Route::view('registeruser','home.register')->name('registeruser');
 Route::get('/logoutuser', [App\Http\Controllers\HomeController::class, 'logout'])->name('logoutuser');
@@ -50,6 +50,14 @@ Route::middleware([
 
 
 Route::middleware('auth')->group(function () {
+Route::get('/contact',[App\Http\Controllers\HomeController::class,'contact'])->name('contact');
+Route::post('/storemessage',[App\Http\Controllers\HomeController::class,'storemessage'])->name('storemessage');
+//***User Panel routes
+Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/reviews', 'reviews')->name('reviews');
+    Route::get('/reviewdestroy/{id}', 'reviewdestroy')->name('reviewdestroy');
+});
 //**********Admin panel**********
 Route::middleware('admin')->prefix('admin')->name('admin.')->group(function (){ 
 Route::get('',[HomeController::class, 'index']);
