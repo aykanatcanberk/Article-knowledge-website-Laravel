@@ -1,5 +1,5 @@
 @extends('layouts.adminwindow')
-@section('title','Show Message:'.$data->subject)
+@section('title','Message Detail')
 @section('head')
 <style>
 @media screen and (max-width: 767px) {
@@ -23,12 +23,14 @@
 </style>
 @endsection
 @section('content')
+@if($data->user_id == auth()->id())
     <div class="table-responsive-sm py-4">
         <div class="midde_cont">
             <div class="heading1 margin_0">
                 <h2>Detail Message Data</h2>
             </div>
             <div class="table-responsive">
+
   <table class="table table-striped">
     <thead>
       <tr>
@@ -54,6 +56,18 @@
 
     </thead>
   </table>
+  @endif
+  @if($data->user_id != auth()->id())
+  <div class="table-responsive-sm py-4">
+    <div class="midde_cont">
+        <div class="alert alert-danger" role="alert">
+            <h2>You do not have such a message.</h2>
+        </div>
+        <div class="table-responsive">
+        </div>
+    </div>
+</div>
+@endif
 </div>
         </div>
     </div>

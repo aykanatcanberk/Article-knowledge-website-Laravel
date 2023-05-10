@@ -29,8 +29,6 @@ Route::get('/logoutuser', [App\Http\Controllers\HomeController::class, 'logout']
 Route::view('loginadmin','admin.login')->name('loginadmin');
 Route::post('/loginadmincheck', [App\Http\Controllers\HomeController::class, 'loginadmincheck'])->name('loginadmincheck');
 
-Route::get('/message',[App\Http\Controllers\HomeController::class,'message'])->name('message');
-Route::get('/message/show/{id}',[App\Http\Controllers\HomeController::class,'messageshow'])->name('messageshow');
 
 Route::middleware([
     'auth:sanctum',
@@ -47,6 +45,8 @@ Route::middleware([
 Route::middleware('auth')->group(function () {   
 Route::get('/contact',[App\Http\Controllers\HomeController::class,'contact'])->name('contact');
 Route::post('/storemessage',[App\Http\Controllers\HomeController::class,'storemessage'])->name('storemessage');
+Route::get('/message',[App\Http\Controllers\HomeController::class,'message'])->name('message');
+Route::get('/message/show/{id}',[App\Http\Controllers\HomeController::class,'messageshow'])->name('messageshow');
 //***User Panel routes
 Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class)->group(function () {
     Route::get('/', 'index')->name('index');
