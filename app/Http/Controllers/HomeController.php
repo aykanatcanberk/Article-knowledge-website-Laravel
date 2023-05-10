@@ -59,6 +59,23 @@ class HomeController extends Controller
                 'setting'=>$setting,
             ]);
     }
+
+    public function message()
+    {
+        $data = Message::all();
+        return view('home.message.index', [
+            'data' => $data
+        ]);
+    }
+    public function messageshow($id)
+    {
+        $data=Message::find($id);
+        return view('home.message.show',[
+            'data'=>$data
+        ]);
+    }
+
+
 public function storemessage(Request $request)
 {
     $data=new Message();
@@ -76,6 +93,7 @@ public function storemessage(Request $request)
 
     return redirect()->route('contact')->with('info','Your messsage has been sent.');
 }
+
     public function announcedetail($id){
 
         $data=Annoucement::find($id);

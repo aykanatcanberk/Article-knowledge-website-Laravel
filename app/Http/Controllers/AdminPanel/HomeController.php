@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AdminPanel;
 use App\Http\Controllers\Controller;
 use App\Models\Content;
 use App\Models\Setting;
+use App\Models\Message;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -50,9 +51,6 @@ class HomeController extends Controller
         $data->status=$request->input('status');
         $data->save();
         return redirect()->route('admin.setting');
-
-
-
-
     }
+
 }

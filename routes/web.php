@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Http\Controllers\AdminPanel\HomeController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\MessageController;
+use App\Http\Controllers\AdminPanel\UserMessageController;
 use App\Http\Controllers\UserController;
 use App\Models\Annoucement;
 use App\Models\Message;
@@ -28,14 +29,8 @@ Route::get('/logoutuser', [App\Http\Controllers\HomeController::class, 'logout']
 Route::view('loginadmin','admin.login')->name('loginadmin');
 Route::post('/loginadmincheck', [App\Http\Controllers\HomeController::class, 'loginadmincheck'])->name('loginadmincheck');
 
-//***User messages routes
-Route::prefix('/message')->name('message.')->controller(MessageController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::post('/update/{id}', 'update')->name('update');
-    Route::get('/destroy/{id}', 'destroy')->name('destroy');
-    Route::get('/show/{id}', 'show')->name('show');
-});
-
+Route::get('/message',[App\Http\Controllers\HomeController::class,'message'])->name('message');
+Route::get('/message/show/{id}',[App\Http\Controllers\HomeController::class,'messageshow'])->name('messageshow');
 
 Route::middleware([
     'auth:sanctum',
@@ -49,7 +44,7 @@ Route::middleware([
 });
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () {   
 Route::get('/contact',[App\Http\Controllers\HomeController::class,'contact'])->name('contact');
 Route::post('/storemessage',[App\Http\Controllers\HomeController::class,'storemessage'])->name('storemessage');
 //***User Panel routes

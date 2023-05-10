@@ -29,27 +29,14 @@
                 <h2>Detail Message Data</h2>
             </div>
             <div class="table-responsive">
-
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Name & Surname</th>
-        <td><span>{{$data->name}}</span></td>
-      </tr>
-      <tr>
-        <th>Phone Number</th>
-        <td><span>{{$data->phone}}</span></td>
-      </tr>
-      <tr>
-        <th>Email</th>
-        <td><span>{{$data->email}}</span></td>
-      </tr>
-      <tr>
-        <th>Subject</th>
+        <th>Your Subject</th>
         <td><span>{{$data->subject}}</span></td>
       </tr>
       <tr>
-        <th>Message</th>
+        <th>Your Message</th>
         <td><span>{{$data->message}}</span></td>
       </tr>
       <tr>
@@ -61,19 +48,10 @@
         <td><span>{{$data->updated_at}}</span></td>
       </tr>
       <tr>
-        <th>Reply</th>
-        <td>
-          <form action="{{route('admin.message.update',['id'=>$data->id])}}" method="post">
-            @csrf
-            <textarea cols="50" id="note" name="note" style="float: left;">
-                {{$data->note}}
-            </textarea>
-            <div class="card-footer" style="text-align: right;">
-              <button type="submit" class="btn btn-primary">Answer</button>
-            </div>
-          </form>
-        </td>
+        <th>Admin's Answer</th>
+        <td><span>{{$data->note}}</span></td>
       </tr>
+
     </thead>
   </table>
 </div>
